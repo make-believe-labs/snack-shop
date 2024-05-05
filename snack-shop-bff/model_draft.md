@@ -7,7 +7,7 @@ Proposed model for snacks and orders.
 ```json
 {
     _id: <ObjectId_Snack1>,
-    snackName: "Doritos",
+    snackName: "Tortilla Chips",
     detail: 
         {
             flavor: "Cheese",
