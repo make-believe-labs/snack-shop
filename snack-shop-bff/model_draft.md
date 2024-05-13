@@ -14,7 +14,8 @@ Proposed model for snacks and orders.
             weight: "45g"
         },
     categories: [ "Savory", "Crisps" ],
-    stock: 100
+    stock: 100,
+    unitPrice: 90,
 }
 ```
 
@@ -36,8 +37,12 @@ Proposed model for snacks and orders.
     snacks: [
         {
             snack: <ObjectId_Snack1>,
-            qnt: 1
+            qnt: 2,
+            unitPrice: 75
         }
-    ]
+    ],
+    vat: 30,
+    shippingCost: 399,
+    orderTotal: 579,
 }
 ```
