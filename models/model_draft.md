@@ -10,7 +10,7 @@ Proposed model for snacks and orders.
     snackName: "Tortilla Chips",
     details: 
         {
-            flavor: "Cheese",
+            flavour: "Cheese",
             weight: "45g"
         },
     categories: [ "Savory", "Crisps" ],
