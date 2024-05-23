@@ -8,7 +8,7 @@ Proposed model for snacks and orders.
 {
     _id: <ObjectId_Snack1>,
     snackName: "Tortilla Chips",
-    detail: 
+    details: 
         {
             flavor: "Cheese",
             weight: "45g"
