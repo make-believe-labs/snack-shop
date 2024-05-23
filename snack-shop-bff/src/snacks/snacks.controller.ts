@@ -9,7 +9,7 @@ export class SnacksController {
         _id: '9034b608-fa95-4ff5-9ed9-9d57cb472588',
         snackName: 'Tortilla Chips',
         details: {
-          flavor: 'Cheese',
+          flavour: 'Cheese',
           weight: '45g',
         },
         categories: ['Savory', 'Crisps'],
