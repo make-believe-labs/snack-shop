@@ -23,7 +23,7 @@ export class SnacksController {
           flavour: 'Cool Original',
           weight: '45g',
         },
-        catagories: ['Savory', 'Crisps'],
+        categories: ['Savory', 'Crisps'],
         stock: 30,
         unitPrice: 90,
       },
