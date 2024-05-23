@@ -20,7 +20,7 @@ export class SnacksController {
         _id: 'd003235d-d1db-4402-aebe-133f5a3081e2',
         snackName: 'Tortilla Chips',
         details: {
-          flavor: 'Cool Original',
+          flavour: 'Cool Original',
           weight: '45g',
         },
         catagories: ['Savory', 'Crisps'],
