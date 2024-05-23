@@ -12,7 +12,7 @@ export class SnacksController {
           flavor: 'Cheese',
           weight: '45g',
         },
-        catagories: ['Savory', 'Crisps'],
+        categories: ['Savory', 'Crisps'],
         stock: 100,
         unitPrice: 90,
       },
