@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import { Header } from './Components/Header'
+import { Wrapper } from './Components/Wrapper';
+import { Box, Text } from '@chakra-ui/react';
 
 const App = () => {
   const [data, setData] = useState(null);
@@ -29,25 +32,23 @@ const App = () => {
   }, []);
 
   return (
-    <>
-        <div>
+    <Wrapper>
+      <Header headingText="Snack Shop" />
+      <Box>
         {loading && (
-          <div>Loading snacks...</div>
+          <Text>Loading snacks...</Text>
         )}
-        {error && <div>{error}</div>}
-
-        <ul>
+        {error && <Text>{error}</Text>}
+      </Box>
           {data &&
-            data.map(({ _id, snackName, details}) => (
-              <li
-                key={_id}
-               >
-                  {snackName}: {details.flavour}, {details.weight}
-              </li>
+            data.map(({_id, snackName, details}) => (
+                <Box id={_id} bg='green.100' p={4}>
+                  <Text>{snackName}</Text>
+                  <Text>{details.flavour}</Text>
+                  <Text>{details.weight}</Text>
+                </Box>
             ))}
-        </ul>
-      </div>
-    </>
+    </Wrapper>
   )
 };
 
