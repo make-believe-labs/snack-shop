@@ -97,7 +97,7 @@ To run it using Gradle via the command line:
 ./gradlew bootRun --args='--spring.profiles.active=local
 ```
 
-If you use IntelliJ, you can run it directly as Spring Boot App using the run configuration in the `.\run` directory.
+If you use IntelliJ, you can run it directly as Spring Boot App using the run configuration in the `.run` directory.
 
 ## Interact with the service
 The service starts on port 8080 and exposes a REST API. You can use the Bruno collection provided in the `dev` directory to get started.
