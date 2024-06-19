@@ -1,2 +1,1 @@
-spring.application.name: snack-shop-be
 logging.level.root: DEBUG
