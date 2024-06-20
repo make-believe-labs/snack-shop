@@ -7,6 +7,6 @@ export class OrdersController {
 
     @Get()
     async findAll(): Promise<any> {
-        return this.ordersService.findAll()
+        return this.ordersService.getOrders();
     }
 }
