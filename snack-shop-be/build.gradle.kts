@@ -8,7 +8,8 @@ plugins {
 }
 
 group = "com.makebelievelabs"
-version = "0.0.1-SNAPSHOT"
+// version = "0.0.1-SNAPSHOT"
+// TODO: Use semantic versioning and get it working with DOCKER
 
 java {
 	sourceCompatibility = JavaVersion.VERSION_21
