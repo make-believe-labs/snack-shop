@@ -1,6 +1,5 @@
 package com.makebelievelabs.snackshop.service
 
-import com.makebelievelabs.snackshop.model.Snack
 import com.makebelievelabs.snackshop.model.SnackRequest
 import com.makebelievelabs.snackshop.model.SnackResponse
 import com.makebelievelabs.snackshop.model.toDomain
@@ -13,7 +12,7 @@ import org.springframework.stereotype.Service
 class SnackServiceImpl(
     @Autowired val snackRepository: SnackRepository,
 ) : SnackService {
-    override fun getAllSnacks(): List<Snack> = snackRepository.findAll()
+    override fun getAllSnacks(): List<SnackResponse> = snackRepository.findAll().map { it.toResponse() }
 
     override fun addSnack(snackRequest: SnackRequest): SnackResponse = snackRepository.insert(snackRequest.toDomain()).toResponse()
 }

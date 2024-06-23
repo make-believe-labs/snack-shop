@@ -1,6 +1,5 @@
 package com.makebelievelabs.snackshop.controller
 
-import com.makebelievelabs.snackshop.model.Snack
 import com.makebelievelabs.snackshop.model.SnackRequest
 import com.makebelievelabs.snackshop.model.SnackResponse
 import com.makebelievelabs.snackshop.service.SnackService
@@ -19,7 +18,7 @@ class SnackController(
     @Autowired val snackService: SnackService,
 ) {
     @GetMapping
-    fun getAllSnacks(): ResponseEntity<List<Snack>> = ResponseEntity.ok(snackService.getAllSnacks())
+    fun getAllSnacks(): ResponseEntity<List<SnackResponse>> = ResponseEntity.ok(snackService.getAllSnacks())
 
     @PostMapping
     fun addSnack(
