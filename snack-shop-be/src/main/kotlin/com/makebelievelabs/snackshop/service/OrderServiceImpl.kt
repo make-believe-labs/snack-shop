@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class OrderServiceImpl (@Autowired val orderRepository: OrderRepository) : OrderService {
-    override fun getAllOrders() : List<Order> = orderRepository.findAll()
+class OrderServiceImpl(
+    @Autowired val orderRepository: OrderRepository,
+) : OrderService {
+    override fun getAllOrders(): List<Order> = orderRepository.findAll()
 }

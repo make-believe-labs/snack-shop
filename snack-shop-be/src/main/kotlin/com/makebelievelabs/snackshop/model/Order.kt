@@ -9,24 +9,24 @@ import java.time.Instant
 
 @Component
 @Document("orders")
-data class Order (
+data class Order(
     @Id
     val _id: ObjectId = ObjectId(),
     var orderStatus: List<OrderStatus> = emptyList(),
     var snacks: List<OrderSnack> = emptyList(),
     var vat: Int?,
     var shippingCost: Int?,
-    var orderTotal: Int?
+    var orderTotal: Int?,
 )
 
 data class OrderStatus(
     var status: String,
-    @Field(name="when")
-    var orderTime: Instant
+    @Field(name = "when")
+    var orderTime: Instant,
 )
 
 data class OrderSnack(
     var snack: ObjectId,
     var qnt: Int,
-    var unitPrice: Int
+    var unitPrice: Int,
 )

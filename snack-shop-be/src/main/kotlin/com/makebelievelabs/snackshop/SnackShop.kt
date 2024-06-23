@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class SnackShop
 
 fun main(args: Array<String>) {
-	runApplication<SnackShop>(*args)
+    runApplication<SnackShop>(*args)
 }

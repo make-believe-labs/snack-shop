@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/orders")
-class OrderController (@Autowired val orderService: OrderService) {
+class OrderController(
+    @Autowired val orderService: OrderService,
+) {
     @GetMapping
-    fun getAllOrders(): ResponseEntity<List<Order>>
-            = ResponseEntity.ok(orderService.getAllOrders())
+    fun getAllOrders(): ResponseEntity<List<Order>> = ResponseEntity.ok(orderService.getAllOrders())
 }
