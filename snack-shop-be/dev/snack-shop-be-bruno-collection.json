@@ -5,7 +5,7 @@
     {
       "type": "http",
       "name": "get all orders",
-      "seq": 2,
+      "seq": 1,
       "request": {
         "url": "{{url}}/api/orders",
         "method": "GET",
@@ -28,7 +28,7 @@
     {
       "type": "http",
       "name": "get all snacks",
-      "seq": 3,
+      "seq": 2,
       "request": {
         "url": "{{url}}/api/snacks",
         "method": "GET",
@@ -58,6 +58,30 @@
         "headers": [],
         "body": {
           "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        },
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "add snack",
+      "seq": 3,
+      "request": {
+        "url": "{{url}}/api/snacks",
+        "method": "POST",
+        "headers": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n   \"snackName\": \"Tortilla Chips\",\n   \"details\": {\n     \"flavour\": \"Cheese\",\n     \"weight\": \"45g\"\n   },\n   \"categories\": [\n     \"Savory\",\n     \"Crisps\"\n   ],\n   \"stock\": \"100\",\n   \"unitPrice\": \"90\"\n }",
           "formUrlEncoded": [],
           "multipartForm": []
         },
