@@ -1,2 +1,3 @@
 spring.application.name: snack-shop-be
 logging.level.root: INFO
+spring.data.mongodb.uri: mongodb://localhost:27017/snack-shop
