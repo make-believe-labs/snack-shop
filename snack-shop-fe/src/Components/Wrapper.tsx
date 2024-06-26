@@ -1,8 +1,8 @@
-import { VStack } from '@chakra-ui/react'
+import { SimpleGrid } from '@chakra-ui/react'
 export function Wrapper({ children }) {
     return (
-        <VStack spacing={4} align='stretch'>
+        <SimpleGrid columns={3} spacing={2}>
             {children}
-        </VStack>
+        </SimpleGrid>
     )
 }
