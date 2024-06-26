@@ -17,7 +17,7 @@ const App = () => {
         if (!response.ok) {
           throw new Error(`HTTP error: Status ${response.status}`);
         }
-        let snackData = await response.json();
+        const snackData = await response.json();
         setData(snackData);
         setError(null);
       } catch (err) {
@@ -33,7 +33,7 @@ const App = () => {
 
   return (
     <Wrapper>
-      <Header headingText="Snack Shop" />
+      <Header headingText='Snack Shop' />
       <Box>
         {loading && (
           <Text>Loading snacks...</Text>
@@ -41,11 +41,16 @@ const App = () => {
         {error && <Text>{error}</Text>}
       </Box>
           {data &&
-            data.map(({_id, snackName, details}) => (
+            data.map(({_id, snackName, details, unitPrice, stock, categories}) => (
                 <Box id={_id} bg='green.100' p={4}>
-                  <Text>{snackName}</Text>
+                  <Text as="b">{snackName}</Text>
                   <Text>{details.flavour}</Text>
                   <Text>{details.weight}</Text>
+                  <Text>£{unitPrice/100}</Text>
+                  <Text>{stock > 0 ? 'In stock' : 'Out of stock'}</Text>
+                  {categories && categories.map((categories) => (
+                    <Text as="i">{categories} </Text>
+                  ))}
                 </Box>
             ))}
     </Wrapper>
