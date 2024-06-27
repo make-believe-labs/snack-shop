@@ -6,14 +6,13 @@ const url = "http://localhost:8080/api/snacks"
 
 function makeSnack() {
     return {
-        "snackName": faker.lorem.words({ min: 1, max: 3 }),
+        "snackName": faker.helpers.arrayElement(['Creamy', 'Golden', 'Exquisite', 'Delicious', 'Snacktastic', 'Luxurious', 'Value']) + " " + faker.helpers.arrayElement(['Cake', 'Donut', 'Pudding', 'Pasty', 'Pie', 'Crisps', 'Chocolate', 'Mixed Nuts', 'Popcorn']),
         "details": {
-            "flavour": faker.lorem.words(1),
+            "flavour": faker.helpers.arrayElement(['Sweet', 'Savory', 'Umami', 'Sour', 'Spicy']),
             "weight": faker.number.int({ min: 10, max: 999 }) + "g"
         },
         "categories": [
-            faker.lorem.words(1),
-            faker.lorem.words(1)
+            faker.helpers.arrayElement(['Best of British', 'Fresh Today', 'Great to Gift', 'Sale'])
         ],
         "stock": faker.number.int({ min: 0, max: 10 }),
         "unitPrice": faker.number.int({ min: 50, max: 1000 })
