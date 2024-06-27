@@ -21,5 +21,7 @@ services:
     restart: always
     ports: 
       - '3000:3000'
+    environment:
+      - SNACK_SHOP_BE_URL=http://snack-shop-be:8080/
     depends_on:
       - snack-shop-be
