@@ -1,0 +1,27 @@
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./db:/data/db
+ 
+  snack-shop-be:
+    build: ../snack-shop-be
+    restart: always
+    ports: 
+      - '8080:8080'
+    depends_on:
+      - mongodb
+
+  snack-shop-bff:
+    build: ../snack-shop-bff
+    restart: always
+    ports: 
+      - '3000:3000'
+    environment:
+      - SNACK_SHOP_BE_URL=http://snack-shop-be:8080/
+    depends_on:
+      - snack-shop-be
