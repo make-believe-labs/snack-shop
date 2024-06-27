@@ -1,0 +1,18 @@
+{
+  "name": "stock_snacks",
+  "version": "1.0.0",
+  "description": "Seed snacks into the snack shop",
+  "main": "stock_snacks.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stock": "node stock_snacks.js"
+  },
+  "author": "Make Believe Labs",
+  "license": "MIT",
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "i": "^0.3.7",
+    "npm": "^10.8.1",
+    "superagent": "^9.0.2"
+  }
+}
