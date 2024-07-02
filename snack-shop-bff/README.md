@@ -4,7 +4,7 @@ The backend for frontend (BFF) service for the snack shop.
 
 ## Prerequisites
 
-Make sure to use the Node version defined in `.nvmrc`.
+Make sure to have the Node version defined in `.nvmrc` installed and to use it.
 
 ```bash
 nvm use
