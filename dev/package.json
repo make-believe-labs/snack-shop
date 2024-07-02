@@ -4,7 +4,6 @@
   "description": "Seed snacks into the snack shop",
   "main": "stock_snacks.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "stock": "node stock_snacks.js"
   },
   "author": "Make Believe Labs",
