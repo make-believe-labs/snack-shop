@@ -31,3 +31,17 @@ npm run dev
 # linting
 npm run lint
 ```
+
+## E2E Tests
+
+End to end tests with Playwright live in `/e2e` and should end .spec.ts.
+
+To run them, run:
+
+```bash
+npm run e2e
+npm run e2e:report
+npm run e2e:ui
+```
+
+Lean more at <https://playwright.dev/docs/intro>
