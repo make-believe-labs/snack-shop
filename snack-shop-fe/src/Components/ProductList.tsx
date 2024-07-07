@@ -1,8 +1,26 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Wrapper } from './Wrapper';
 import { Box, Text } from '@chakra-ui/react';
 
-export const Products = () => {
+interface snackItems {
+    _id: string,
+    snackName: string,
+    details: snackDetails,
+    unitPrice: number,
+    stock: number,
+    categories: snackCategories[],
+}
+
+interface snackDetails {
+    flavour: string,
+    weight: string
+}
+
+interface snackCategories {
+    categories: string
+}
+
+export const Products: React.FC = () => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -40,14 +58,14 @@ export const Products = () => {
             </Box>
             <Wrapper>
                 {data &&
-                    data.map(({ _id, snackName, details, unitPrice, stock, categories }) => (
+                    data.map(({ _id, snackName, details, unitPrice, stock, categories }: snackItems) => (
                         <Box id={_id} bg='green.100' p={4}>
                             <Text as="b">{snackName}</Text>
                             <Text>{details.flavour}</Text>
                             <Text>{details.weight}</Text>
                             <Text>£{unitPrice / 100}</Text>
                             <Text>{stock > 0 ? 'In stock' : 'Out of stock'}</Text>
-                            {categories && categories.map((categories) => (
+                            {categories && categories.map(({categories}: snackCategories) => (
                                 <Text as="i">{categories} </Text>
                             ))}
                         </Box>
