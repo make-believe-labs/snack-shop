@@ -2,7 +2,7 @@ const superagent = require('superagent');
 const { faker } = require('@faker-js/faker');
 const numberOfSnacksToStock = 10;
 
-const url = "http://localhost:8080/api/snacks"
+const url = process.env.SNACK_API_ENDPOINT ? process.env.SNACK_API_ENDPOINT : "http://localhost:8080/api/snacks"
 
 function makeSnack() {
     return {
