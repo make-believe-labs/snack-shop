@@ -25,3 +25,13 @@ services:
       - SNACK_SHOP_BE_URL=http://snack-shop-be:8080/
     depends_on:
       - snack-shop-be
+
+  snack-shop-fe:
+    build: ../snack-shop-fe
+    restart: always
+    ports: 
+      - '9090:9090'
+    environment:
+      - SNACK_SHOP_BFF_URL=http://snack-shop-bff:3000/ # TODO: Use this in the FE
+    depends_on:
+      - snack-shop-bff
