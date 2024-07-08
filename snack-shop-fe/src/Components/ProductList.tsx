@@ -21,9 +21,9 @@ interface snackCategories {
 }
 
 export const Products: React.FC = () => {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState<snackItems[] | null>(null);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchDataForSnacks = async () => {
@@ -38,7 +38,10 @@ export const Products: React.FC = () => {
                 setData(snackData);
                 setError(null);
             } catch (err) {
-                setError(err.message);
+                if (err instanceof Error) {
+                    let message = err.message;
+                    setError(message);
+                }
                 setData(null);
             } finally {
                 setLoading(false);
