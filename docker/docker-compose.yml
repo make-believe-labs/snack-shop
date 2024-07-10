@@ -1,5 +1,5 @@
 services:
-  mongodb:
+  snack-shop-db:
     image: mongo
     container_name: mongodb
     restart: always
@@ -14,7 +14,7 @@ services:
     ports: 
       - '8080:8080'
     depends_on:
-      - mongodb
+      - snack-shop-db
 
   snack-shop-bff:
     build: ../snack-shop-bff
