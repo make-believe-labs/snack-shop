@@ -13,6 +13,12 @@ services:
     restart: always
     ports: 
       - '8080:8080'
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://snack-shop-be:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
     depends_on:
       - mongodb
 
@@ -24,7 +30,8 @@ services:
     environment:
       - SNACK_SHOP_BE_URL=http://snack-shop-be:8080/
     depends_on:
-      - snack-shop-be
+      snack-shop-be:
+        condition: service_healthy
 
   snack-shop-fe:
     build: ../snack-shop-fe
@@ -42,4 +49,5 @@ services:
     environment:
       - SNACK_API_ENDPOINT=http://snack-shop-be:8080/api/snacks
     depends_on:
-      - snack-shop-be
+      snack-shop-be:
+        condition: service_healthy
