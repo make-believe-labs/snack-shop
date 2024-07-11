@@ -27,10 +27,13 @@ describe('OrdersController', () => {
   describe('findAll', () => {
     describe('if orders exist', () => {
       it('should return all orders', () => {
-        const expectedResult = [{'_id': 1, 'orderTotal': 100},{'_id': 2, 'orderTotal': 1234}];
+        const expectedResult = [
+          { _id: 1, orderTotal: 100 },
+          { _id: 2, orderTotal: 1234 },
+        ];
         jest.spyOn(orderService, 'getOrders').mockResolvedValue(expectedResult);
 
-        return orderController.findAll().then(result => {
+        return orderController.findAll().then((result) => {
           expect(result).toBe(expectedResult);
         });
       });
@@ -41,7 +44,7 @@ describe('OrdersController', () => {
         const expectedResult = [];
         jest.spyOn(orderService, 'getOrders').mockResolvedValue(expectedResult);
 
-        return orderController.findAll().then(result => {
+        return orderController.findAll().then((result) => {
           expect(result).toBe(expectedResult);
         });
       });

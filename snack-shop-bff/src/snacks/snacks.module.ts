@@ -8,6 +8,6 @@ import { ConfigModule } from '@nestjs/config';
   controllers: [SnacksController],
   imports: [ConfigModule, HttpModule],
   providers: [SnacksService],
-  exports: [SnacksService]
+  exports: [SnacksService],
 })
 export class SnacksModule {}

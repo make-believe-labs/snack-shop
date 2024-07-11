@@ -5,7 +5,8 @@ import { SnacksController } from './snacks.controller';
 import { SnacksService } from './snacks.service';
 
 describe('SnacksController', () => {
-  let controller: SnacksController;
+  let snacksController: SnacksController;
+  let snacksService: SnacksService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -14,10 +15,27 @@ describe('SnacksController', () => {
       providers: [SnacksService],
     }).compile();
 
-    controller = module.get<SnacksController>(SnacksController);
+    snacksController = module.get<SnacksController>(SnacksController);
+    snacksService = module.get<SnacksService>(SnacksService);
   });
 
   it('should be defined', () => {
-    expect(controller).toBeDefined();
+    expect(snacksController).toBeDefined();
+    expect(snacksService).toBeDefined();
+  });
+
+  describe('findAll', () => {
+    describe('if snacks exist', () => {
+      it('should return all snacks', () => {
+        const expectedResult = [{ _id: 3, snackName: 'Disgusting Pie' }];
+        jest
+          .spyOn(snacksService, 'getSnacks')
+          .mockResolvedValue(expectedResult);
+
+        return snacksController.findAll().then((result) => {
+          expect(result).toBe(expectedResult);
+        });
+      });
+    });
   });
 });

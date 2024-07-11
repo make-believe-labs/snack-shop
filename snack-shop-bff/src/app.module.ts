@@ -12,4 +12,4 @@ import { SnacksModule } from './snacks/snacks.module';
   controllers: [AppController, OrdersController, SnacksController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

@@ -27,19 +27,24 @@ describe('OrdersService', () => {
     describe('if orders exist', () => {
       it('should return all orders', () => {
         const response: AxiosResponse = {
-          data: [{_id: 1, orderTotal: 100},{_id: 2, orderTotal: 1234}],
+          data: [
+            { _id: 1, orderTotal: 100 },
+            { _id: 2, orderTotal: 1234 },
+          ],
           status: 200,
           statusText: 'OK',
           headers: {},
           config: {
-            headers: undefined
-          }
+            headers: undefined,
+          },
         };
         const expectedResult = response.data;
-    
-        jest.spyOn(httpService, 'get').mockImplementationOnce(() => of(response));
-    
-        return orderService.getOrders().then(result => {
+
+        jest
+          .spyOn(httpService, 'get')
+          .mockImplementationOnce(() => of(response));
+
+        return orderService.getOrders().then((result) => {
           expect(result).toBe(expectedResult);
         });
       });
@@ -53,14 +58,16 @@ describe('OrdersService', () => {
           statusText: 'OK',
           headers: {},
           config: {
-            headers: undefined
-          }
+            headers: undefined,
+          },
         };
         const expectedResult = response.data;
-    
-        jest.spyOn(httpService, 'get').mockImplementationOnce(() => of(response));
-    
-        return orderService.getOrders().then(result => {
+
+        jest
+          .spyOn(httpService, 'get')
+          .mockImplementationOnce(() => of(response));
+
+        return orderService.getOrders().then((result) => {
           expect(result).toBe(expectedResult);
         });
       });

@@ -6,15 +6,17 @@ import { SnacksModule } from './../src/snacks/snacks.module';
 
 describe('SnackController (e2e)', () => {
   let app: INestApplication;
-  let snacksService = { getSnacks: () => [{_id: 1, snackName: "Delicious Cake"}] };
+  const snacksService = {
+    getSnacks: () => [{ _id: 1, snackName: 'Delicious Cake' }],
+  };
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [SnacksModule],
     })
-    .overrideProvider(SnacksService)
-    .useValue(snacksService)
-    .compile();
+      .overrideProvider(SnacksService)
+      .useValue(snacksService)
+      .compile();
 
     app = moduleFixture.createNestApplication();
     await app.init();
