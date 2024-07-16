@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Wrapper } from './Wrapper';
 // eslint-disable-next-line no-redeclare
-import { Box, Card, CardBody, CardFooter, CardHeader, Text, Heading, Button, Center } from '@chakra-ui/react';
+import { Box, Card, CardBody, CardFooter, CardHeader, Text, Heading, Button } from '@chakra-ui/react';
 
 interface snackItems {
     _id: string,
