@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Wrapper } from './Wrapper';
 // eslint-disable-next-line no-redeclare
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Card, CardBody, CardFooter, CardHeader, Text, Heading, Button, Center } from '@chakra-ui/react';
 
 interface snackItems {
     _id: string,
@@ -9,16 +9,12 @@ interface snackItems {
     details: snackDetails,
     unitPrice: number,
     stock: number,
-    categories: snackCategories[],
+    categories: string[],
 }
 
 interface snackDetails {
     flavour: string,
     weight: string
-}
-
-interface snackCategories {
-    categories: string
 }
 
 export const Products: React.FC = () => {
@@ -60,21 +56,31 @@ export const Products: React.FC = () => {
                 )}
                 {error && <Text>{error}</Text>}
             </Box>
-            <Wrapper>
-                {data &&
-                    data.map(({ _id, snackName, details, unitPrice, stock, categories }: snackItems) => (
-                        <Box id={_id} bg='green.100' p={4} key={_id}>
-                            <Text as="b">{snackName}</Text>
-                            <Text>{details.flavour}</Text>
-                            <Text>{details.weight}</Text>
-                            <Text>£{unitPrice / 100}</Text>
-                            <Text>{stock > 0 ? 'In stock' : 'Out of stock'}</Text>
-                            {categories && categories.map(({categories}: snackCategories, index) => (
-                                <Text as="i" key={index}>{categories}</Text>
-                            ))}
-                        </Box>
-                    ))}
-            </Wrapper>
+            <Box as='section' id='snacks'>
+                <Heading as='h2'>Snacks</Heading>
+                <Wrapper>
+                    {data &&
+                        data.map(({ _id, snackName, details, unitPrice, stock, categories }: snackItems, index: number) => (
+                            <Card as='article' minW='250px' id={_id} bg='green.100' p={4} key={_id} data-testid={'snack_' + index}>
+                                <CardHeader bgGradient='linear(to-t, pink.400, purple.400)'>
+                                    <Heading as="h3">{snackName}</Heading>
+                                </CardHeader>
+                                <CardBody bgColor='green.300'>
+                                    <Text>Flavour: {details.flavour}</Text>
+                                    <Text>Weight: {details.weight}</Text>
+                                    {categories && categories.map((category, index) => (
+                                        <Text as="i" key={index}>{category}</Text>
+                                    ))}
+                                    <Text>£{unitPrice / 100}</Text>
+                                </CardBody>
+                                <CardFooter>
+                                    {stock > 0 ? <><Button>Add</Button></> : <><Button disabled>Out of stock</Button></>}
+                                </CardFooter>
+                            </Card>
+                        ))}
+
+                </Wrapper>
+            </Box>
         </>
     )
 };
