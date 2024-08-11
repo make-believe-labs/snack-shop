@@ -57,24 +57,24 @@ export const Products: React.FC = () => {
                 {error && <Text>{error}</Text>}
             </Box>
             <Box as='section' id='snacks'>
-                <Heading as='h2'>Snacks</Heading>
+                <Heading as='h2' fontSize={'3em'} m={'10px'}>Snacks</Heading>
                 <Wrapper>
                     {data &&
                         data.map(({ _id, snackName, details, unitPrice, stock, categories }: snackItems, index: number) => (
                             <Card as='article' minW='250px' id={_id} bg='green.100' p={4} key={_id} data-testid={'snack_' + index}>
-                                <CardHeader bgGradient='linear(to-t, pink.400, purple.400)'>
-                                    <Heading as="h3">{snackName}</Heading>
+                                <CardHeader bgColor={'green.300'}>
+                                    <Heading as="h3" fontSize={'2em'}>{snackName}</Heading>
                                 </CardHeader>
                                 <CardBody bgColor='green.300'>
                                     <Text>Flavour: {details.flavour}</Text>
                                     <Text>Weight: {details.weight}</Text>
                                     {categories && categories.map((category, index) => (
-                                        <Text as="i" key={index}>{category}</Text>
+                                        <Text as="i" key={index}>Category: {category}</Text>
                                     ))}
-                                    <Text>£{unitPrice / 100}</Text>
+                                    <Text>Price: £{unitPrice / 100}</Text>
                                 </CardBody>
                                 <CardFooter>
-                                    {stock > 0 ? <><Button>Add</Button></> : <><Button disabled>Out of stock</Button></>}
+                                    {stock > 0 ? <><Button>Add</Button></> : <><Button isDisabled>Out of stock</Button></>}
                                 </CardFooter>
                             </Card>
                         ))}
