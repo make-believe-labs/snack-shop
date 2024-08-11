@@ -57,7 +57,6 @@ export const Products: React.FC = () => {
                 {error && <Text>{error}</Text>}
             </Box>
             <Box as='section' id='snacks'>
-                <Heading as='h2' fontSize={'3em'} m={'10px'}>Snacks</Heading>
                 <Wrapper>
                     {data &&
                         data.map(({ _id, snackName, details, unitPrice, stock, categories }: snackItems, index: number) => (
