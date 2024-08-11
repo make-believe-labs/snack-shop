@@ -1,7 +1,7 @@
 import { SimpleGrid } from '@chakra-ui/react'
 export function Wrapper({ children }: any) {
     return (
-        <SimpleGrid columns={3} spacing={2}>
+        <SimpleGrid m={'10px'} minChildWidth={'300px'} spacing={'25px'}>
             {children}
         </SimpleGrid>
     )
