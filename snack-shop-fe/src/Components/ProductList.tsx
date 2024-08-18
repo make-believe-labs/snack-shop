@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Wrapper } from './Wrapper';
 // eslint-disable-next-line no-redeclare
 import { Box, Card, CardBody, CardFooter, CardHeader, Text, Heading, Button } from '@chakra-ui/react';
+import type { RootState } from '../store'
+import { useSelector, useDispatch } from 'react-redux';
+import { decrement, increment } from '../features/basketSlice';
 
 interface snackItems {
     _id: string,
@@ -21,6 +24,8 @@ export const Products: React.FC = () => {
     const [data, setData] = useState<snackItems[] | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const count = useSelector((state: RootState) => state.counter.value);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchDataForSnacks = async () => {
@@ -73,7 +78,7 @@ export const Products: React.FC = () => {
                                     <Text>Price: £{unitPrice / 100}</Text>
                                 </CardBody>
                                 <CardFooter>
-                                    {stock > 0 ? <><Button>Add</Button></> : <><Button isDisabled>Out of stock</Button></>}
+                                    {stock > 0 ? <><Button area-label='Add to basket' onClick={() => dispatch(increment())}>Add</Button></> : <><Button isDisabled>Out of stock</Button></>}
                                 </CardFooter>
                             </Card>
                         ))}
