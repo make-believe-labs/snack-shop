@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Basket from './views/Basket';
+import BasketView from './views/Basket';
 import Orders from './views/Orders';
 import Snacks from './views/Snacks';
 import { Header } from './Components/Header';
@@ -14,7 +14,7 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Snacks />} />
           <Route path='/orders' element={<Orders />} />
-          <Route path='/basket' element={<Basket />} />
+          <Route path='/basket' element={<BasketView />} />
           <Route path='*' element={<>Not Found</>} />
         </Routes>
       </BrowserRouter>

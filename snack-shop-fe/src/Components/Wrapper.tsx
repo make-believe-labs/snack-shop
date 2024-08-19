@@ -6,3 +6,11 @@ export function Wrapper({ children }: any) {
         </SimpleGrid>
     )
 }
+
+export function WrapperSingle({ children }: any) {
+    return (
+        <SimpleGrid m={'10px'} column={1} spacing={'25px'}>
+            {children}
+        </SimpleGrid>
+    )
+}

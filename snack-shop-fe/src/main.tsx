@@ -6,11 +6,11 @@ import { store } from './store'
 import { Provider } from 'react-redux'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  <React.Fragment>
     <Provider store={store}>
       <ChakraProvider>
         <App />
       </ChakraProvider>
     </Provider>
-  </React.StrictMode>
+  </React.Fragment>
 )

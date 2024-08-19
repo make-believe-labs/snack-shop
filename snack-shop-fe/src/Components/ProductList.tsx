@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Wrapper } from './Wrapper';
 // eslint-disable-next-line no-redeclare
 import { Box, Card, CardBody, CardFooter, CardHeader, Text, Heading, Button } from '@chakra-ui/react';
-import type { RootState } from '../store'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addSnack } from '../features/basketSlice';
 
 interface snackItems {
@@ -24,7 +23,6 @@ export const Products: React.FC = () => {
     const [data, setData] = useState<snackItems[] | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    const snacks = useSelector((state: RootState) => state.basket);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -78,7 +76,7 @@ export const Products: React.FC = () => {
                                     <Text>Price: £{unitPrice / 100}</Text>
                                 </CardBody>
                                 <CardFooter>
-                                    {stock > 0 ? <><Button area-label='Add to basket' onClick={() => dispatch(addSnack({snackId: _id, snackName}))}>Add</Button></> : <><Button isDisabled>Out of stock</Button></>}
+                                    {stock > 0 ? <><Button area-label='Add to basket' onClick={() => dispatch(addSnack({ _id, snackName, details, unitPrice, stock, categories }))}>Add</Button></> : <><Button isDisabled>Out of stock</Button></>}
                                 </CardFooter>
                             </Card>
                         ))}
