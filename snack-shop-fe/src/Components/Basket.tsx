@@ -1,31 +1,18 @@
 import { WrapperSingle } from './Wrapper';
 // eslint-disable-next-line no-redeclare
 import { Box, Card, CardBody, CardHeader, Heading, Text} from '@chakra-ui/react';
+import { RootState} from '../store'
 import { useSelector } from 'react-redux';
-
-interface snackItems {
-    _id: string,
-    snackName: string,
-    details: snackDetails,
-    unitPrice: number,
-    stock: number,
-    categories: string[],
-}
-
-interface snackDetails {
-    flavour: string,
-    weight: string
-}
 
 function Basket() {
 
-    const list = useSelector((state) => state);
+    const list = useSelector((state: RootState) => state.basket);
 
     return (
         <>
             <Box as='section' id='basket'>
                 <WrapperSingle>
-                    {list.basket?.map(({ _id, snackName, details, unitPrice, categories }: snackItems, index: number) => (
+                    {list.snacksInBasket?.map(({ _id, snackName, details, unitPrice, categories }, index: number) => (
                         <Card as='article' minW='250px' id={_id} bg='yellow.100' p={4} key={_id} data-testid={'snack_' + index}>
                             <CardHeader bgColor={'yellow.300'}>
                                 <Heading as="h3" fontSize={'2em'}>{snackName}</Heading>
