@@ -63,7 +63,7 @@ export const Products: React.FC = () => {
                 <Wrapper>
                     {data &&
                         data.map(({ _id, snackName, details, unitPrice, stock, categories }: snackItems, index: number) => (
-                            <Card as='article' minW='250px' id={_id} bg='green.100' p={4} key={_id} data-testid={'snack_' + index}>
+                            <Card as='article' minW='250px' id={_id} bg='green.100' p={4} key={_id} data-testid={'storeSnack_' + index}>
                                 <CardHeader bgColor={'green.300'}>
                                     <Heading as="h3" fontSize={'2em'}>{snackName}</Heading>
                                 </CardHeader>

@@ -13,7 +13,7 @@ function Basket() {
             <Box as='section' id='basket'>
                 <WrapperSingle>
                     {list.snacksInBasket?.map(({ _id, snackName, details, unitPrice, categories }, index: number) => (
-                        <Card as='article' minW='250px' id={_id} bg='yellow.100' p={4} key={_id} data-testid={'snack_' + index}>
+                        <Card as='article' minW='250px' id={_id+'_'+index} bg='yellow.100' p={4} key={_id+'_'+index} data-testid={'basketSnack_' + index}>
                             <CardHeader bgColor={'yellow.300'}>
                                 <Heading as="h3" fontSize={'2em'}>{snackName}</Heading>
                             </CardHeader>
