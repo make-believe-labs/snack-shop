@@ -1,6 +1,6 @@
 import { WrapperSingle } from './Wrapper';
 // eslint-disable-next-line no-redeclare
-import { Box, Card, CardBody, CardHeader, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Card, CardBody, CardHeader, Heading, Text } from '@chakra-ui/react';
 import { RootState } from '../store'
 import { useSelector } from 'react-redux';
 
@@ -21,8 +21,9 @@ function Basket() {
                                 <Text>
                                     Flavour: {details.flavour},
                                     Weight: {details.weight},
-                                    Price: £{unitPrice / 100}
+                                    Price: £{unitPrice / 100},
                                 </Text>
+                                <Button mt={2}>Remove</Button>
                             </CardBody>
                         </Card>
                     ))}
