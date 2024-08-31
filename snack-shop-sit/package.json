@@ -2,7 +2,13 @@
   "name": "snack-shop-sit",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "update": "playwright install --with-deps",
+    "record": "playwright codegen localhost:9090"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
