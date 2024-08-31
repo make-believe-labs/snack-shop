@@ -20,7 +20,7 @@ services:
       interval: 5s
       timeout: 30s
       retries: 5
-      start_period: 15s
+      start_period: 10s
 
   snack-shop-bff:
     build: ../snack-shop-bff
@@ -30,7 +30,14 @@ services:
     environment:
       - SNACK_SHOP_BE_URL=http://snack-shop-be:8080/
     depends_on:
-      - snack-shop-be
+      snack-shop-be:
+        condition: service_healthy
+    # healthcheck:
+    #   test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+    #   interval: 5s
+    #   timeout: 30s
+    #   retries: 5
+    #   start_period: 10s
 
   snack-shop-fe:
     build: ../snack-shop-fe
@@ -41,7 +48,9 @@ services:
       - SNACK_SHOP_BFF_URL=http://snack-shop-bff:3000/ # TODO: Use this in the FE
     depends_on:
       - snack-shop-bff
-  
+      # snack-shop-bff:
+      #   condition: service_healthy
+
   stock-snacks:
     build: ../dev
     restart: no
