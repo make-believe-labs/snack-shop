@@ -5,9 +5,6 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "e2e": "playwright install && playwright test",
-    "e2e:ui": "playwright install && playwright test --ui",
-    "e2e:report": "playwright install && playwright test && playwright show-report",
     "build": "tsc && vite build",
     "lint": "eslint src/**/* --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -26,7 +23,6 @@
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.45.1",
     "@types/node": "^20.14.10",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
