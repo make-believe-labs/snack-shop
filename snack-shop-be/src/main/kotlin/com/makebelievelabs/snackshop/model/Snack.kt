@@ -3,7 +3,9 @@ package com.makebelievelabs.snackshop.model
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
+import org.springframework.data.mongodb.core.mapping.Field
 import org.springframework.stereotype.Component
+import java.time.Instant
 
 @Component
 @Document("snacks")

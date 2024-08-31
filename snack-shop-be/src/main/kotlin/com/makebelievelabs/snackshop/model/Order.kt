@@ -30,3 +30,40 @@ data class OrderSnack(
     var qnt: Int,
     var unitPrice: Int,
 )
+
+data class OrderRequest(
+    var orderStatus: List<OrderStatus> = emptyList(),
+    var snacks: List<OrderSnack> = emptyList(),
+    var vat: Int?,
+    var shippingCost: Int?,
+    var orderTotal: Int?,
+)
+
+data class OrderResponse(
+    val _id: String,
+    var orderStatus: List<OrderStatus> = emptyList(),
+    var snacks: List<OrderSnack> = emptyList(),
+    var vat: Int?,
+    var shippingCost: Int?,
+    var orderTotal: Int?,
+)
+
+fun OrderRequest.toDomain(): Order =
+    Order(
+        _id = ObjectId(),
+        orderStatus = orderStatus,
+        snacks = snacks,
+        vat = vat,
+        shippingCost = shippingCost,
+        orderTotal = orderTotal,
+    )
+
+fun Order.toResponse(): OrderResponse =
+    OrderResponse(
+        _id = _id.toString(),
+        orderStatus = orderStatus,
+        snacks = snacks,
+        vat = vat,
+        shippingCost = shippingCost,
+        orderTotal = orderTotal,
+    )
