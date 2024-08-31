@@ -1,8 +1,10 @@
 const superagent = require('superagent');
 const { faker } = require('@faker-js/faker');
 const numberOfSnacksToStock = 10;
+let healthy = false;
 
 const url = process.env.SNACK_API_ENDPOINT ? process.env.SNACK_API_ENDPOINT : "http://localhost:8080/api/snacks"
+const health = process.env.HEALTH_ENDPOINT ? process.env.HEALTH_ENDPOINT : "http://localhost:8080/actuator/health"
 
 function makeSnack() {
     return {
@@ -22,11 +24,22 @@ function makeSnack() {
 function stockSnack(snack) {
     superagent.post(`${url}`)
         .send(snack)
-        .then(console.log)
+        .then(res => console.log(res.body))
         .catch(console.error);
 }
 
-for (let i = 0; i < numberOfSnacksToStock; i++) {
-    let snackToStock = makeSnack();
-    stockSnack(snackToStock);
+async function loadsOfSnacks() {
+    superagent.get(`${health}`)
+        .then(res => {
+            if (res.ok) {
+                for (let i = 0; i < numberOfSnacksToStock; i++) {
+                    let snackToStock = makeSnack();
+                    stockSnack(snackToStock);
+                    console.log(i)
+                }
+            }
+        })
+        .catch(console.error)
 }
+
+loadsOfSnacks().then(console.log('yummy')).catch('disgusting')

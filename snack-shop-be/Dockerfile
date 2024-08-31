@@ -13,5 +13,6 @@ RUN set -x && gradle build
 FROM amazoncorretto:21-alpine3.19
 WORKDIR /app
 EXPOSE 8080
+RUN apk --no-cache add curl
 COPY --from=builder /builder/build/libs/snackshop.jar .
 ENTRYPOINT ["java", "-Dspring.data.mongodb.uri=mongodb://mongodb/snack-shop", "-jar", "snackshop.jar"]

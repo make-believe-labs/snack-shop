@@ -15,6 +15,12 @@ services:
       - '8080:8080'
     depends_on:
       - mongodb
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 5s
+      timeout: 30s
+      retries: 5
+      start_period: 15s
 
   snack-shop-bff:
     build: ../snack-shop-bff
@@ -41,5 +47,7 @@ services:
     restart: no
     environment:
       - SNACK_API_ENDPOINT=http://snack-shop-be:8080/api/snacks
+      - HEALTH_ENDPOINT=http://snack-shop-be:8080/actuator/health
     depends_on:
-      - snack-shop-be
+      snack-shop-be:
+        condition: service_healthy
