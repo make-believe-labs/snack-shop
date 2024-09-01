@@ -84,9 +84,11 @@ export const OrdersList: React.FC = () => {
                                         <Text key={index} >£{snack.unitPrice / 100 * snack.qnt} for {snack.qnt} x {snack.snackName} at £{snack.unitPrice / 100} each</Text>
 
                                     ))}
+                                    <br />
                                     <Heading as="h4" fontSize={'1.2 em'}>Costs</Heading>
-                                    <Text>UK value added text: £{vat}</Text>
+                                    <Text>UK value added tax: £{vat}</Text>
                                     <Text>Shipping: £{shippingCost / 100}</Text>
+                                    <br />
                                     <Text as="b">Order total: £{orderTotal / 100}</Text>
                                 </CardBody>
                             </Card>

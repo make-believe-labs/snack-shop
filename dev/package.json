@@ -4,7 +4,8 @@
   "description": "Seed snacks into the snack shop",
   "main": "stock_snacks.js",
   "scripts": {
-    "stock": "node stock_snacks.js"
+    "stock": "node stock_snacks.js",
+    "order": "node raise_orders.js"
   },
   "author": "Make Believe Labs",
   "license": "MIT",
