@@ -27,6 +27,7 @@ data class OrderStatus(
 
 data class OrderSnack(
     var snack: ObjectId,
+    var snackName: String,
     var qnt: Int,
     var unitPrice: Int,
 )

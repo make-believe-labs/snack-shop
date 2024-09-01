@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Wrapper } from './Wrapper';
+import { WrapperSingle } from './Wrapper';
 // eslint-disable-next-line no-redeclare
 import { Box, Card, CardBody, CardHeader, Text, Heading } from '@chakra-ui/react';
 
@@ -19,6 +19,7 @@ interface orderStatus {
 
 interface snacks {
     snack: snack,
+    snackName: string,
     qnt: number,
     unitPrice: number
 }
@@ -70,22 +71,28 @@ export const OrdersList: React.FC = () => {
                 {error && <Text>{error}</Text>}
             </Box>
             <Box as='section' id='orders'>
-                <Wrapper>
+                <WrapperSingle>
                     {data &&
-                        data.map(({ _id, vat, shippingCost, orderTotal }: orderItems, index: number) => (
-                            <Card as='article' minW='250px' id={_id} bg='purple.100' p={4} key={_id} data-testid={'order_' + index}>
-                                <CardHeader bgColor={'purple.300'}>
-                                    <Heading as="h3" fontSize={'2em'}>{_id}</Heading>
+                        data.map(({ _id, snacks, vat, shippingCost, orderTotal }: orderItems, index: number) => (
+                            <Card as='article' minW='250px' id={_id} bg='purple.100' p={3} key={_id} data-testid={'order_' + index}>
+                                <CardHeader bgColor={'purple.300'} p={2}>
+                                    <Heading as="h3" fontSize={'1.6em'}>Order {_id}</Heading>
                                 </CardHeader>
-                                <CardBody bgColor='purple.300'>
-                                    <Text>VAT: £{vat}</Text>
-                                    <Text>Shipping cost: £{shippingCost / 100}</Text>
-                                    <Text>Order total: £{orderTotal / 100}</Text>
+                                <CardBody bgColor='purple.300' p={2}>
+                                    <Heading as="h4" fontSize={'1.2 em'}>Snacks</Heading>
+                                    {snacks && snacks.map((snack, index) => (
+                                        <Text key={index} >£{snack.unitPrice / 100 * snack.qnt} for {snack.qnt} x {snack.snackName} at £{snack.unitPrice / 100} each</Text>
+
+                                    ))}
+                                    <Heading as="h4" fontSize={'1.2 em'}>Costs</Heading>
+                                    <Text>UK value added text: £{vat}</Text>
+                                    <Text>Shipping: £{shippingCost / 100}</Text>
+                                    <Text as="b">Order total: £{orderTotal / 100}</Text>
                                 </CardBody>
                             </Card>
                         ))}
 
-                </Wrapper>
+                </WrapperSingle>
             </Box>
         </>
     )
