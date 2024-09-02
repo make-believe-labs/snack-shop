@@ -18,15 +18,6 @@ docker compose up -d mongodb
 cd docker
 docker compose up --build
 
-## Java
-
-If you don't have it already, go grab [SDK Man](https://sdkman.io/)
-Install Java 21 JDK from Amazon via SDK Man
-
-Run:
-
-sdk install java 21.0.4-amzn
-
 ## Node
 
 Version Manager:
@@ -51,7 +42,20 @@ nvm use
 npm ci
 npp run dev
 
-## Snack Shop Backend
+## Snack Shop Backend [Optional]
+
+### Java
+
+If you're running the application via Docker, you don't strictly need Java, unless you fancy a Java based side quest.
+
+To run the Snack Shop Backend locally, you will need Java.
+
+If you don't have it already, go grab [SDK Man](https://sdkman.io/)
+Install Java 21 JDK from Amazon via SDK Man
+
+sdk install java 21.0.4-amzn
+
+## Start Snack Shop Backend
 
 cd snack-shop-be
 ./gradlew build
