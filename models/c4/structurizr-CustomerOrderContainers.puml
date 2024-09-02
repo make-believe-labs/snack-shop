@@ -1,0 +1,32 @@
+@startuml
+set separator none
+title Customer Orders - Containers
+
+top to bottom direction
+
+!include <C4/C4>
+!include <C4/C4_Context>
+!include <C4/C4_Container>
+
+System(SnackShopWeb, "Snack Shop Web", $descr="Allows customers to place and track orders for tasty treats", $tags="", $link="")
+System(WarehouseLogistics, "Warehouse Logistics", $descr="Manages all deliveries and stock", $tags="", $link="")
+
+System_Boundary("CustomerOrders_boundary", "Customer Orders", $tags="") {
+  Container(CustomerOrders.NewOrdersService, "New Orders Service", $techn="", $descr="Allows creation of new customer orders", $tags="", $link="")
+  Container(CustomerOrders.OrderTrackingService, "Order Tracking Service", $techn="", $descr="Keeps track of live and historical orders", $tags="", $link="")
+  Container(CustomerOrders.OldOrderRemovalService, "Old Order Removal Service", $techn="", $descr="Makes sure very old orders are deleted to safe space", $tags="", $link="")
+  Container(CustomerOrders.OrderRepository, "Order Repository", $techn="", $descr="Manages all database interactions", $tags="", $link="")
+  Container(CustomerOrders.OrdersDatabase, "Orders Database", $techn="", $descr="Stores customer orders", $tags="", $link="")
+  Container(CustomerOrders.LegacyOrdersDatabase, "Legacy Orders Database", $techn="", $descr="Archive of orders from before 2018", $tags="", $link="")
+}
+
+Rel(SnackShopWeb, CustomerOrders.NewOrdersService, "Raises order", $techn="", $tags="", $link="")
+Rel(WarehouseLogistics, CustomerOrders.OrderTrackingService, "Update order status", $techn="", $tags="", $link="")
+Rel(CustomerOrders.NewOrdersService, CustomerOrders.OrderRepository, "Store new orders", $techn="", $tags="", $link="")
+Rel(CustomerOrders.OrderTrackingService, CustomerOrders.OrderRepository, "Store order updates", $techn="", $tags="", $link="")
+Rel(CustomerOrders.OldOrderRemovalService, CustomerOrders.OrderRepository, "Deletes orders", $techn="", $tags="", $link="")
+Rel(CustomerOrders.OrderRepository, CustomerOrders.OrdersDatabase, "Read, write, update and delete", $techn="", $tags="", $link="")
+Rel(CustomerOrders.OrderRepository, CustomerOrders.LegacyOrdersDatabase, "Read orders from before 2018", $techn="", $tags="", $link="")
+
+SHOW_LEGEND(true)
+@enduml

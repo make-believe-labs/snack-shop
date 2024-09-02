@@ -1,0 +1,36 @@
+graph TB
+  linkStyle default fill:#ffffff
+
+  subgraph diagram ["Customer Orders - Containers"]
+    style diagram fill:#ffffff,stroke:#ffffff
+
+    3["<div style='font-weight: bold'>Snack Shop Web</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Allows customers to place and<br />track orders for tasty treats</div>"]
+    style 3 fill:#dddddd,stroke:#9a9a9a,color:#000000
+    16["<div style='font-weight: bold'>Warehouse Logistics</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Manages all deliveries and<br />stock</div>"]
+    style 16 fill:#dddddd,stroke:#9a9a9a,color:#000000
+
+    subgraph 9 [Customer Orders]
+      style 9 fill:#ffffff,stroke:#9a9a9a,color:#9a9a9a
+
+      10["<div style='font-weight: bold'>New Orders Service</div><div style='font-size: 70%; margin-top: 0px'>[Container]</div><div style='font-size: 80%; margin-top:10px'>Allows creation of new<br />customer orders</div>"]
+      style 10 fill:#dddddd,stroke:#9a9a9a,color:#000000
+      11["<div style='font-weight: bold'>Order Tracking Service</div><div style='font-size: 70%; margin-top: 0px'>[Container]</div><div style='font-size: 80%; margin-top:10px'>Keeps track of live and<br />historical orders</div>"]
+      style 11 fill:#dddddd,stroke:#9a9a9a,color:#000000
+      12["<div style='font-weight: bold'>Old Order Removal Service</div><div style='font-size: 70%; margin-top: 0px'>[Container]</div><div style='font-size: 80%; margin-top:10px'>Makes sure very old orders<br />are deleted to safe space</div>"]
+      style 12 fill:#dddddd,stroke:#9a9a9a,color:#000000
+      13["<div style='font-weight: bold'>Order Repository</div><div style='font-size: 70%; margin-top: 0px'>[Container]</div><div style='font-size: 80%; margin-top:10px'>Manages all database<br />interactions</div>"]
+      style 13 fill:#dddddd,stroke:#9a9a9a,color:#000000
+      14["<div style='font-weight: bold'>Orders Database</div><div style='font-size: 70%; margin-top: 0px'>[Container]</div><div style='font-size: 80%; margin-top:10px'>Stores customer orders</div>"]
+      style 14 fill:#dddddd,stroke:#9a9a9a,color:#000000
+      15["<div style='font-weight: bold'>Legacy Orders Database</div><div style='font-size: 70%; margin-top: 0px'>[Container]</div><div style='font-size: 80%; margin-top:10px'>Archive of orders from before<br />2018</div>"]
+      style 15 fill:#dddddd,stroke:#9a9a9a,color:#000000
+    end
+
+    3-. "<div>Raises order</div><div style='font-size: 70%'></div>" .->10
+    16-. "<div>Update order status</div><div style='font-size: 70%'></div>" .->11
+    10-. "<div>Store new orders</div><div style='font-size: 70%'></div>" .->13
+    11-. "<div>Store order updates</div><div style='font-size: 70%'></div>" .->13
+    12-. "<div>Deletes orders</div><div style='font-size: 70%'></div>" .->13
+    13-. "<div>Read, write, update and<br />delete</div><div style='font-size: 70%'></div>" .->14
+    13-. "<div>Read orders from before 2018</div><div style='font-size: 70%'></div>" .->15
+  end

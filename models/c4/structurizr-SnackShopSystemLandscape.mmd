@@ -1,0 +1,36 @@
+graph TB
+  linkStyle default fill:#ffffff
+
+  subgraph diagram ["System Landscape"]
+    style diagram fill:#ffffff,stroke:#ffffff
+
+    subgraph group1 [Delivery Co]
+      style group1 fill:#ffffff,stroke:#cccccc,color:#cccccc,stroke-dasharray:5
+
+      17["<div style='font-weight: bold'>Delivery Co</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Partner delivery company who<br />collects and delivers orders<br />from warehouse</div>"]
+      style 17 fill:#dddddd,stroke:#9a9a9a,color:#000000
+    end
+
+    subgraph group2 [Snack Shop]
+      style group2 fill:#ffffff,stroke:#cccccc,color:#cccccc,stroke-dasharray:5
+
+      16["<div style='font-weight: bold'>Warehouse Logistics</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Manages all deliveries and<br />stock</div>"]
+      style 16 fill:#dddddd,stroke:#9a9a9a,color:#000000
+      2["<div style='font-weight: bold'>Snack Shop Staff</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>Staff who keep the Snack Shop<br />running to delicious effect</div>"]
+      style 2 fill:#dddddd,stroke:#9a9a9a,color:#000000
+      3["<div style='font-weight: bold'>Snack Shop Web</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Allows customers to place and<br />track orders for tasty treats</div>"]
+      style 3 fill:#dddddd,stroke:#9a9a9a,color:#000000
+      9["<div style='font-weight: bold'>Customer Orders</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Keeps track of all new and<br />historical orders from<br />purchase to dispatch</div>"]
+      style 9 fill:#dddddd,stroke:#9a9a9a,color:#000000
+    end
+
+    1["<div style='font-weight: bold'>Customers</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>New or returning Snack Shop<br />Customers</div>"]
+    style 1 fill:#dddddd,stroke:#9a9a9a,color:#000000
+
+    1-. "<div>Browse and purchase snacks</div><div style='font-size: 70%'></div>" .->3
+    3-. "<div>Raises order</div><div style='font-size: 70%'></div>" .->9
+    9-. "<div>Requests stock allocation</div><div style='font-size: 70%'></div>" .->16
+    16-. "<div>Provide list of orders ready<br />for delivery</div><div style='font-size: 70%'></div>" .->17
+    16-. "<div>Update order status</div><div style='font-size: 70%'></div>" .->9
+    17-. "<div>Delivers tasty snacks</div><div style='font-size: 70%'></div>" .->1
+  end

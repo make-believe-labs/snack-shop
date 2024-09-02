@@ -1,0 +1,22 @@
+graph TB
+  linkStyle default fill:#ffffff
+
+  subgraph diagram ["Snack Shop Web - Single-Page Application - Components"]
+    style diagram fill:#ffffff,stroke:#ffffff
+
+    8["<div style='font-weight: bold'>Store Web BFF</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJs]</div><div style='font-size: 80%; margin-top:10px'>Connects web applications to<br />the backend services</div>"]
+    style 8 fill:#dddddd,stroke:#9a9a9a,color:#000000
+
+    subgraph 4 [Single-Page Application]
+      style 4 fill:#ffffff,stroke:#9a9a9a,color:#9a9a9a
+
+      5["<div style='font-weight: bold'>Snack Catalog</div><div style='font-size: 70%; margin-top: 0px'>[Component: React Component]</div><div style='font-size: 80%; margin-top:10px'>Make sure each snack is<br />looking its best</div>"]
+      style 5 fill:#dddddd,stroke:#9a9a9a,color:#000000
+      6["<div style='font-weight: bold'>Snack Orders</div><div style='font-size: 70%; margin-top: 0px'>[Component: React Component]</div><div style='font-size: 80%; margin-top:10px'>Allows users to keep up to<br />date with their orders</div>"]
+      style 6 fill:#dddddd,stroke:#9a9a9a,color:#000000
+      7["<div style='font-weight: bold'>Snack Basket</div><div style='font-size: 70%; margin-top: 0px'>[Component: React Componenet]</div><div style='font-size: 80%; margin-top:10px'>Holds the snacks users are<br />going to order</div>"]
+      style 7 fill:#dddddd,stroke:#9a9a9a,color:#000000
+    end
+
+    5-. "<div>Add, remove and checkout<br />snacks</div><div style='font-size: 70%'></div>" .->8
+  end

@@ -1,0 +1,29 @@
+@startuml
+set separator none
+title Snack Shop Web - Containers
+
+top to bottom direction
+
+!include <C4/C4>
+!include <C4/C4_Context>
+!include <C4/C4_Container>
+
+Person(Customers, "Customers", $descr="New or returning Snack Shop Customers", $tags="", $link="")
+System(CustomerOrders, "Customer Orders", $descr="Keeps track of all new and historical orders from purchase to dispatch", $tags="", $link="")
+
+System_Boundary("SnackShopWeb_boundary", "Snack Shop Web", $tags="") {
+  AddBoundaryTag("Web", $borderColor="#cccccc", $fontColor="#cccccc", $borderStyle="dashed")
+  Boundary(group_1, "Web", $tags="Web") {
+    Container(SnackShopWeb.SinglePageApplication, "Single-Page Application", $techn="React", $descr="Displays the range of available snacks", $tags="", $link="")
+    Container(SnackShopWeb.StoreWebBFF, "Store Web BFF", $techn="NestJs", $descr="Connects web applications to the backend services", $tags="", $link="")
+  }
+
+}
+
+Rel(Customers, SnackShopWeb.SinglePageApplication, "Purchase snacks", $techn="", $tags="", $link="")
+Rel(SnackShopWeb.SinglePageApplication, SnackShopWeb.StoreWebBFF, "Add, remove and checkout snacks", $techn="", $tags="", $link="")
+Rel(SnackShopWeb.SinglePageApplication, SnackShopWeb.StoreWebBFF, "Create order", $techn="", $tags="", $link="")
+Rel(SnackShopWeb.StoreWebBFF, CustomerOrders, "Raises order", $techn="", $tags="", $link="")
+
+SHOW_LEGEND(true)
+@enduml

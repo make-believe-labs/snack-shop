@@ -1,0 +1,33 @@
+@startuml
+set separator none
+title System Landscape
+
+top to bottom direction
+
+!include <C4/C4>
+!include <C4/C4_Context>
+
+AddBoundaryTag("Delivery Co", $borderColor="#cccccc", $fontColor="#cccccc", $borderStyle="dashed")
+Boundary(group_1, "Delivery Co", $tags="Delivery Co") {
+  System(DeliveryCo, "Delivery Co", $descr="Partner delivery company who collects and delivers orders from warehouse", $tags="", $link="")
+}
+
+AddBoundaryTag("Snack Shop", $borderColor="#cccccc", $fontColor="#cccccc", $borderStyle="dashed")
+Boundary(group_2, "Snack Shop", $tags="Snack Shop") {
+  System(WarehouseLogistics, "Warehouse Logistics", $descr="Manages all deliveries and stock", $tags="", $link="")
+  Person(SnackShopStaff, "Snack Shop Staff", $descr="Staff who keep the Snack Shop running to delicious effect", $tags="", $link="")
+  System(SnackShopWeb, "Snack Shop Web", $descr="Allows customers to place and track orders for tasty treats", $tags="", $link="")
+  System(CustomerOrders, "Customer Orders", $descr="Keeps track of all new and historical orders from purchase to dispatch", $tags="", $link="")
+}
+
+Person(Customers, "Customers", $descr="New or returning Snack Shop Customers", $tags="", $link="")
+
+Rel(Customers, SnackShopWeb, "Browse and purchase snacks", $techn="", $tags="", $link="")
+Rel(SnackShopWeb, CustomerOrders, "Raises order", $techn="", $tags="", $link="")
+Rel(CustomerOrders, WarehouseLogistics, "Requests stock allocation", $techn="", $tags="", $link="")
+Rel(WarehouseLogistics, DeliveryCo, "Provide list of orders ready for delivery", $techn="", $tags="", $link="")
+Rel(WarehouseLogistics, CustomerOrders, "Update order status", $techn="", $tags="", $link="")
+Rel(DeliveryCo, Customers, "Delivers tasty snacks", $techn="", $tags="", $link="")
+
+SHOW_LEGEND(true)
+@enduml

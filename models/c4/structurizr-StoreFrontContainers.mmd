@@ -1,0 +1,30 @@
+graph TB
+  linkStyle default fill:#ffffff
+
+  subgraph diagram ["Snack Shop Web - Containers"]
+    style diagram fill:#ffffff,stroke:#ffffff
+
+    1["<div style='font-weight: bold'>Customers</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>New or returning Snack Shop<br />Customers</div>"]
+    style 1 fill:#dddddd,stroke:#9a9a9a,color:#000000
+    9["<div style='font-weight: bold'>Customer Orders</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Keeps track of all new and<br />historical orders from<br />purchase to dispatch</div>"]
+    style 9 fill:#dddddd,stroke:#9a9a9a,color:#000000
+
+    subgraph 3 [Snack Shop Web]
+      style 3 fill:#ffffff,stroke:#9a9a9a,color:#9a9a9a
+
+      subgraph group1 [Web]
+        style group1 fill:#ffffff,stroke:#cccccc,color:#cccccc,stroke-dasharray:5
+
+        4["<div style='font-weight: bold'>Single-Page Application</div><div style='font-size: 70%; margin-top: 0px'>[Container: React]</div><div style='font-size: 80%; margin-top:10px'>Displays the range of<br />available snacks</div>"]
+        style 4 fill:#dddddd,stroke:#9a9a9a,color:#000000
+        8["<div style='font-weight: bold'>Store Web BFF</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJs]</div><div style='font-size: 80%; margin-top:10px'>Connects web applications to<br />the backend services</div>"]
+        style 8 fill:#dddddd,stroke:#9a9a9a,color:#000000
+      end
+
+    end
+
+    1-. "<div>Purchase snacks</div><div style='font-size: 70%'></div>" .->4
+    4-. "<div>Add, remove and checkout<br />snacks</div><div style='font-size: 70%'></div>" .->8
+    4-. "<div>Create order</div><div style='font-size: 70%'></div>" .->8
+    8-. "<div>Raises order</div><div style='font-size: 70%'></div>" .->9
+  end

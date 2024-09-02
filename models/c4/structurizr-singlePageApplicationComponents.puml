@@ -1,0 +1,23 @@
+@startuml
+set separator none
+title Snack Shop Web - Single-Page Application - Components
+
+top to bottom direction
+
+!include <C4/C4>
+!include <C4/C4_Context>
+!include <C4/C4_Container>
+!include <C4/C4_Component>
+
+Container(SnackShopWeb.StoreWebBFF, "Store Web BFF", $techn="NestJs", $descr="Connects web applications to the backend services", $tags="", $link="")
+
+Container_Boundary("SnackShopWeb.SinglePageApplication_boundary", "Single-Page Application", $tags="") {
+  Component(SnackShopWeb.SinglePageApplication.SnackCatalog, "Snack Catalog", $techn="React Component", $descr="Make sure each snack is looking its best", $tags="", $link="")
+  Component(SnackShopWeb.SinglePageApplication.SnackOrders, "Snack Orders", $techn="React Component", $descr="Allows users to keep up to date with their orders", $tags="", $link="")
+  Component(SnackShopWeb.SinglePageApplication.SnackBasket, "Snack Basket", $techn="React Componenet", $descr="Holds the snacks users are going to order", $tags="", $link="")
+}
+
+Rel(SnackShopWeb.SinglePageApplication.SnackCatalog, SnackShopWeb.StoreWebBFF, "Add, remove and checkout snacks", $techn="", $tags="", $link="")
+
+SHOW_LEGEND(true)
+@enduml

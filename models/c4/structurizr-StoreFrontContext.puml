@@ -1,0 +1,22 @@
+@startuml
+set separator none
+title Snack Shop Web - System Context
+
+top to bottom direction
+
+!include <C4/C4>
+!include <C4/C4_Context>
+
+AddBoundaryTag("Snack Shop", $borderColor="#cccccc", $fontColor="#cccccc", $borderStyle="dashed")
+Boundary(group_1, "Snack Shop", $tags="Snack Shop") {
+  System(SnackShopWeb, "Snack Shop Web", $descr="Allows customers to place and track orders for tasty treats", $tags="", $link="")
+  System(CustomerOrders, "Customer Orders", $descr="Keeps track of all new and historical orders from purchase to dispatch", $tags="", $link="")
+}
+
+Person(Customers, "Customers", $descr="New or returning Snack Shop Customers", $tags="", $link="")
+
+Rel(Customers, SnackShopWeb, "Browse and purchase snacks", $techn="", $tags="", $link="")
+Rel(SnackShopWeb, CustomerOrders, "Raises order", $techn="", $tags="", $link="")
+
+SHOW_LEGEND(true)
+@enduml
