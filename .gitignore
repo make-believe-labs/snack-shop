@@ -141,3 +141,5 @@ out/
 ### mongdo db volume
 
 docker/db
+snack-shop-sit/snack-shop.code-workspace
+snack-shop.code-workspace
