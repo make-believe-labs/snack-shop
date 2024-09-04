@@ -1,5 +1,5 @@
 # Dockerfile for Snack Shop Backend for Frontend
-FROM node:20.15-alpine3.20 As builder
+FROM node:20.15-alpine3.20 AS builder
 
 WORKDIR /builder
 COPY ./package*.json /builder/
