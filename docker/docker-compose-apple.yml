@@ -9,7 +9,7 @@ services:
  
   snack-shop-be:
     build: ../snack-shop-be
-    image: fullsnacktestengineer/snack-shop-be
+    image: fullsnacktestengineer/snack-shop-be-apple
     ports: 
       - '8080:8080'
     depends_on:
@@ -23,7 +23,7 @@ services:
 
   snack-shop-bff:
     build: ../snack-shop-bff
-    image: fullsnacktestengineer/snack-shop-bff
+    image: fullsnacktestengineer/snack-shop-bff-apple
     ports: 
       - '3000:3000'
     environment:
@@ -40,7 +40,7 @@ services:
 
   snack-shop-fe:
     build: ../snack-shop-fe
-    image: fullsnacktestengineer/snack-shop-fe
+    image: fullsnacktestengineer/snack-shop-fe-apple
     ports: 
       - '9090:9090'
     environment:
@@ -52,7 +52,7 @@ services:
 
   stock-snacks:
     build: ../dev
-    image: fullsnacktestengineer/stock-snacks
+    image: fullsnacktestengineer/stock-snacks-apple
     environment:
       - SNACK_API_ENDPOINT=http://snack-shop-be:8080/api/snacks
       - ORDER_API_ENDPOINT=http://snack-shop-be:8080/api/orders
