@@ -3,20 +3,55 @@
 ## Install Docker
 
 Mac: <https://docs.docker.com/desktop/install/mac-install/>
+
 Windows: <https://docs.docker.com/desktop/install/windows-install/>
+
 Linux: <https://docs.docker.com/desktop/install/linux-install/>
 
-## Run with Docker
-
-### Database in Docker, other things locally
+## Run Snack Shop with Docker [Reccomended]
 
 cd docker
-docker compose up -d mongodb
+`docker compose up --build`
 
-### Everything in Docker
+Or for M1, M2, M3 MacBooks:
+`docker compose -f apple.yml up`
 
-cd docker
-docker compose up --build
+## Run System Intergration Tests (SIT)
+
+Open a new terminal window and run, one at a time:
+
+``` bash
+cd snack-shop-sit
+nvm install
+nvm use
+npm ci
+npm run
+```
+
+Expected output after `npm run`:
+
+```bash
+test:api
+    jest
+  test:ui
+    playwright test --ui
+  report
+    playwright show-report
+  update
+    playwright install --with-deps
+  record
+    playwright codegen localhost:9090
+```
+
+You run these scripts using the keywords, for example:
+
+`npm run update`
+
+This should install the needed dependencies for running Playwright tests, such as the browsers. Run this first.
+
+----
+
+## Run locally (optional, if docker doesn't work)
 
 ## Node
 
@@ -29,18 +64,24 @@ Version Manager:
 
 Open a new terminal window and run, one at a time:
 
+``` bash
 cd snack-shop-fe
 nvm install
 nvm use
 npm ci
 npm run dev
+```
 
 ## Snack Shop BFF (Backend for Frontend)
 
+Open a new terminal window and run, one at a time:
+
+``` bash
 cd snack-shop-bff
 nvm use
 npm ci
 npp run dev
+```
 
 ## Snack Shop Backend [Optional]
 
