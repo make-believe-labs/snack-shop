@@ -29,7 +29,7 @@ export const Products: React.FC = () => {
         const fetchDataForSnacks = async () => {
             try {
                 const response = await fetch(
-                    `http://localhost:3000/snacks`
+                    `/api/snacks`
                 );
                 if (!response.ok) {
                     throw new Error(`HTTP error: Status ${response.status}`);

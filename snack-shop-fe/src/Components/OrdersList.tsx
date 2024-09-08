@@ -40,7 +40,7 @@ export const OrdersList: React.FC = () => {
         const fetchDataForOrders = async () => {
             try {
                 const response = await fetch(
-                    `http://localhost:3000/orders`
+                    `/api/orders`
                 );
                 if (!response.ok) {
                     throw new Error(`HTTP error: Status ${response.status}`);
