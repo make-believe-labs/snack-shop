@@ -8,7 +8,7 @@ If you haven't already, clone the snack-shop git repository.
 
 `git clone https://github.com/make-believe-labs/snack-shop.git`
 
-Then open the `snack-shop` folder in VSCode, or your favorate IDE.
+Then open the `snack-shop` folder in VSCode, or your choice of IDE.
 
 ## Run Snack Shop locally with Docker [Recommended]
 
