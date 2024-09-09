@@ -51,53 +51,10 @@ This should install the needed dependencies for running Playwright tests, such a
 
 ----
 
-## Run locally (optional, if docker doesn't work)
+## If Docker Doesn't work
 
-## Node
+If it is really not possible to setup Docker on your laptop in time, then you can use the hosted version of the Snack Shop.
 
-Version Manager:
+https://lab.fullsnacktester.com/
 
-- Mac and Linux use <https://github.com/nvm-sh/nvm>
-- Windows use <https://github.com/coreybutler/nvm-windows#installation--upgrades>
-
-## Snack Shop Frontend
-
-Open a new terminal window and run, one at a time:
-
-``` bash
-cd snack-shop-fe
-nvm install
-nvm use
-npm ci
-npm run dev
-```
-
-## Snack Shop BFF (Backend for Frontend)
-
-Open a new terminal window and run, one at a time:
-
-``` bash
-cd snack-shop-bff
-nvm use
-npm ci
-npp run dev
-```
-
-## Snack Shop Backend [Optional]
-
-### Java
-
-If you're running the application via Docker, you don't strictly need Java, unless you fancy a Java based side quest.
-
-To run the Snack Shop Backend locally, you will need Java.
-
-If you don't have it already, go grab [SDK Man](https://sdkman.io/)
-Install Java 21 JDK from Amazon via SDK Man
-
-sdk install java 21.0.4-amzn
-
-## Start Snack Shop Backend
-
-cd snack-shop-be
-./gradlew build
-./gradlew bootRun --args='--spring.profiles.active=local'
+Hou will need to change the URL used in the System Integration Tests (SIT). The hosted version is commented out, so all you need to do is uncomment it, and then comment out the local url.
