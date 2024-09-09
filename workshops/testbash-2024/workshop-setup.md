@@ -38,10 +38,26 @@ If you really can't get Docker working, use the hosted version:
 
 ## Run System Integration Tests (SIT)
 
+### Node Version Manager
+
+If you don't already have Node Version Manager, NVM, installed, go get it:
+
+```bash
+# On Linux or Mac
+
+<https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating>
+
+# Windows equivalent
+
+<https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows#install-nvm-windows-nodejs-and-npm>
+```
+### Then install node modules for the SIT
+
 Open a new terminal window and run, one at a time:
 
 ``` bash
 cd snack-shop-sit
+# Note, as long as you're in the right folder, nvm install will pick up the correct version from the .nvmrc file. So you need not specify a version.
 nvm install
 nvm use
 npm ci
