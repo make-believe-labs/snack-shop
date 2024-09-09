@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test:api": "jest",
+    "test:api": "jest ./api-tests/",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "report": "playwright show-report",

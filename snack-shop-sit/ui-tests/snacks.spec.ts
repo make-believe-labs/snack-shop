@@ -2,6 +2,8 @@ import { test, expect } from '@playwright/test';
 
 const snackShopUrl = 'https://lab.fullsnacktester.com'
 
+
+test('test', async ({ page }) => {
 // Example solution to Challenge 1: Update a test
 // The reason the original test is broken, is because it's asserting based on old test data
 // We either need to control the test data, or find a more generic way to do the assert.
