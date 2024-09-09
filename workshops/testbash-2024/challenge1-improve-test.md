@@ -41,4 +41,3 @@ Take one of these optional side quests:
 
 - Naming tests is important, this test is called "test", come up with a better one
 - Make this test more robust and immune to flakes
-- 
