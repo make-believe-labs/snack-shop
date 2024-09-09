@@ -30,13 +30,13 @@ Or for M1, M2, M3 MacBooks:
 
 ## If Docker Doesn't work
 
-It is highluy reccomended to run locally with Docker if you can, because it allows you to view the logs, and change the test data (stock of snacks, orders).
+It is highly recommended to run locally with Docker if you can, because it allows you to view the logs, and change the test data (stock of snacks, orders).
 
 If you really can't get Docker working, use the hosted version:
 
 <https://lab.fullsnacktester.com/>
 
-## Run System Intergration Tests (SIT)
+## Run System Integration Tests (SIT)
 
 Open a new terminal window and run, one at a time:
 
