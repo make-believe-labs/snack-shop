@@ -8,10 +8,10 @@ Windows: <https://docs.docker.com/desktop/install/windows-install/>
 
 Linux: <https://docs.docker.com/desktop/install/linux-install/>
 
-## Run Snack Shop with Docker [Reccomended]
+## Run Snack Shop with Docker [recommended]
 
 cd docker
-`docker compose up --build`
+`docker compose up`
 
 Or for M1, M2, M3 MacBooks:
 `docker compose -f apple.yml up`
