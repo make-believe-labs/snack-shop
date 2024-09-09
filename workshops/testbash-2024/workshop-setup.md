@@ -1,12 +1,32 @@
 # TestBash 2024 Workshop Setup Guide
 
-## Install Docker
+## Clone the the Snack Shop
+
+If you haven't already, clone the snack-shop git repository.
+
+ In a terminal, run:
+
+`git clone https://github.com/make-believe-labs/snack-shop.git`
+
+Then open the `snack-shop` folder in VSCode, or your favorate IDE.
+
+## Run Snack Shop locally with Docker [Recommended]
+
+### Install Docker
 
 Mac: <https://docs.docker.com/desktop/install/mac-install/>
 
 Windows: <https://docs.docker.com/desktop/install/windows-install/>
 
 Linux: <https://docs.docker.com/desktop/install/linux-install/>
+
+### Start the stack
+
+cd docker
+`docker compose up`
+
+Or for M1, M2, M3 MacBooks:
+`docker compose -f apple.yml up`
 
 ## If Docker Doesn't work
 
@@ -15,16 +35,6 @@ It is highluy reccomended to run locally with Docker if you can, because it allo
 If you really can't get Docker working, use the hosted version:
 
 <https://lab.fullsnacktester.com/>
-
-## Run Snack Shop with Docker [Recommended]
-
-cd docker
-`docker compose up`
-
-Or for M1, M2, M3 MacBooks:
-`docker compose -f apple.yml up`
-
-----
 
 ## Run System Intergration Tests (SIT)
 
