@@ -46,4 +46,6 @@ Take one of these optional side quests:
 
 Here's one I made earlier, this is one possible solution:
 
-<https://github.com/make-believe-labs/snack-shop/compare/main...test-bash-24-solutions>
+<https://github.com/make-believe-labs/snack-shop/blob/test-bash-24-solutions/snack-shop-sit/ui-tests/snacks.spec.ts>
+
+![Screenshot of solution to challenge 1](solution_challenge1.png)
