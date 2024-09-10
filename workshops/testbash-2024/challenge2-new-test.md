@@ -12,7 +12,7 @@ As demo day approaches, we need more tests to build confidence before we show th
 
 In this challenge you have a choice, you can either:
 
-1. Create a new UI Test using Playwright
+#### Option 1. Create a new UI Test using Playwright
 
 Start with [ui-tests/orders.spec.ts](../../snack-shop-sit/ui-tests/orders.spec.ts).
 
@@ -30,7 +30,7 @@ If you don't have an order in your local database, you can add one using the too
 
 Once you create the mock, you can assert against absolute values, safe in the knowledge the order will consistently have the data you expect.
 
-2. Create a new API test, using SuperTest
+#### Option 2. Create a new API test, using SuperTest
 
 Copy [api-tests/snacks.spec.ts](../../snack-shop-sit/api-tests/snacks.spec.ts) into a file and name it `orders.spec.ts`, make sure it is in the `api-tests` folder.
 
