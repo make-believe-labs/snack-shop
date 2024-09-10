@@ -1,9 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-const snackShopUrl = 'https://lab.fullsnacktester.com'
+const snackShopUrl = 'https://lab.fullsnacktester.com';
 
-
-test('test', async ({ page }) => {
 // Example solution to Challenge 1: Update a test
 // The reason the original test is broken, is because it's asserting based on old test data
 // We either need to control the test data, or find a more generic way to do the assert.
@@ -26,5 +24,5 @@ test('Snacks added on the homepage should be displayed in the basket page', asyn
 
     // Assert that the Snack Name we captured from the first page, is in the basket.
     // We could go further and assert exactly the 3 snacks were added.
-    await expect(page.getByText(snackName)).toBeVisible();
+    await expect(page.getByText(`${snackName}`)).toBeVisible();
 });
