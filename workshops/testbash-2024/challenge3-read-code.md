@@ -46,4 +46,4 @@ The kind of things you might want to consider and comment on include:
 
 Be kind when giving feedback, focus on suggestions for improvement, and factually describe errors or possible issues. You want to avoid telling someone off, judge the code not the coder.
 
-Note: There is no example for this challenge.
+Note: There is no example solution for this challenge.
