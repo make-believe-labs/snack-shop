@@ -18,10 +18,19 @@ Start with [ui-tests/orders.spec.ts](../../snack-shop-sit/ui-tests/orders.spec.t
 
 With in the `orders.spec.ts` file, copy the existing test and paste it below the original.
 
-Now give it a new name, 
+Now give it a new name, something like 'Mocked order renders correctly'.
 
+Now, we you can implement a mocked API request, read the Playwright docs for this:
 
-2. Create a new API test, using Supper Test
+<https://playwright.dev/docs/mock#mock-api-requests>
+
+You might want to use an API client, or the network tab in dev tools in the browser, to look at the orders object so you can mock it accurately.
+
+If you don't have an order in your local database, you can add one using the tool in [dev/raise_orders.js](../../dev/raise_orders.js) or simply visit <https://lab.fullsnacktester.com/api/orders> in the browser, or do a GET on that url in any API client, such as PostMan, Bruno or Yaak.
+
+Once you create the mock, you can assert against absolute values, safe in the knowledge the order will consistently have the data you expect.
+
+2. Create a new API test, using SuperTest
 
 Copy [api-tests/snacks.spec.ts](../../snack-shop-sit/api-tests/snacks.spec.ts) into a file and name it `orders.spec.ts`, make sure it is in the `api-tests` folder.
 
@@ -39,21 +48,67 @@ Got some more time? Try one of these side quests:
 
 - Do both the UI and API tests
 - Extend the API test, to assert against the response
-- 
-
+- Improve the UI test with by using a Page Object Model
 
 ### Solution (spoiler alert!)
 
 Here's one I made earlier, this is one possible solution:
 
-<>
+```JavaScript
+// orders.spec.ts
+import { test, expect } from '@playwright/test';
 
+const snackShopUrl = 'https://lab.fullsnacktester.com'
 
+// Solution to challenge 2
+// There are many ways to control the test data for a web application.
+// One option in PlayWright is to Mock API responses, as I have here.
+// Other options include controlling the data via API and controlling the database directly.
 
-[Optional] Side Quests:
-Stand out from the crowd, add some extra flare by making your test data driven, or introducing a pattern like the Page Object Model or Screenplay. What other ways can you think of to stand out?
+test('Order headings are displayed', async ({ page }) => {
+    // Mock the api call before navigating
+    await page.route('*/**/api/orders', async route => {
+        const json = [
+            {
+                "_id": "00snack1",
+                "orderStatus": [
+                    {
+                        "status": "raised",
+                        "orderTime": "2024-09-01T15:05:42.493Z"
+                    }
+                ],
+                "snacks": [
+                    {
+                        "snack": {
+                            "timestamp": 1725661782,
+                            "date": "2024-09-06T22:29:42.000+00:00"
+                        },
+                        "snackName": "Mock Power Bar",
+                        "qnt": 2,
+                        "unitPrice": 125
+                    },
+                    {
+                        "snack": {
+                            "timestamp": 1725661782,
+                            "date": "2024-09-06T22:29:42.000+00:00"
+                        },
+                        "snackName": "Mint TicTacs",
+                        "qnt": 1,
+                        "unitPrice": 198
+                    }
+                ],
+                "vat": 7,
+                "shippingCost": 259,
+                "orderTotal": 2058
+            }];
+        await route.fulfill({ json });
+    });
 
+    await page.goto(`${snackShopUrl}/orders`);
+    await expect(page.getByTestId('order_0')).toContainText('00snack1');
+    await expect(page.getByTestId('order_0')).toContainText('Mock Power Bar');
+    await expect(page.getByTestId('order_0')).toContainText('Mint TicTacs');
+});
+```
 
-## Scenario
-
-## Instructions
+<https://github.com/make-believe-labs/snack-shop/blob/test-bash-24-solutions/snack-shop-sit/ui-tests/orders.spec.ts>
