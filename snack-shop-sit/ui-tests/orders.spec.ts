@@ -15,7 +15,7 @@ test('test', async ({ page }) => {
 // One option in PlayWright is to Mock API responses, as I have here.
 // Other options include controlling the data via API and controlling the database directly.
 
-test('Order headings are displayed', async ({ page }) => {
+test('Mocked order renders correctly', async ({ page }) => {
     // Mock the api call before navigating
     await page.route('*/**/api/orders', async route => {
         const json = [
