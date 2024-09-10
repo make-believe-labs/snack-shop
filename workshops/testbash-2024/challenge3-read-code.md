@@ -1,19 +1,11 @@
 # TestBash Brighton 2024: Code Challenges Workshop
 
-## Exercise 3: Reading code and giving feedback
+## Challenge 3: Reading code and giving feedback
 
-## Scenario
+### Scenario
 
-## Instructions
+### Instructions
 
-### Option 1: Read read workshop test
+### [Optional] Side quests
 
-### Option 2: Read a test from exercise 2
-
-Swap with somone else in the workshop, that completed exercise 2.
-
-### What to look for
-
-### How to give feedback
-
-### 
+### Solution (spoiler alert!)
